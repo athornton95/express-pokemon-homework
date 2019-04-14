@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const pokemon = require('./pokemon');
+// const serveStatic = require('serve-static');
 app.use(bodyParser({extended: true}));
+app.use(express.static('css'));
 
 // app.get('/pokemon', (req,res)=>{
 //     res.send(pokemon);
