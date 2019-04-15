@@ -2,13 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const pokemon = require('./pokemon');
-// const serveStatic = require('serve-static');
 app.use(bodyParser({extended: true}));
 app.use(express.static('css'));
 
-// app.get('/pokemon', (req,res)=>{
-//     res.send(pokemon);
-//   });
 
 app.get('/pokemon', (req, res)=>{
     res.render('index.ejs', {
@@ -16,14 +12,15 @@ app.get('/pokemon', (req, res)=>{
     });
   });
 
+  app.get('/pokemon', (req,res)=>{
+    res.send(pokemon);
+  });
+
   app.get('/pokemon/:id', (req, res) => {
     res.render('show.ejs', {
         pokemon : pokemon[req.params.id]
     })
 })
-
-
-
 
 
 
