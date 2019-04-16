@@ -10,8 +10,17 @@
 <body>
     <ul class = pokemon>
     <% for (let i = 0; i < pokemon.length; i++){%>
-    <li><a href = "/pokemon/<%=i%>"><%= pokemon[i].name %></a></li>
+    <li><a href = "/pokemon/<%=i%>"><%= pokemon[i].name %></a>
+    <form action = "/pokemon/<%=i%>/edit" method = "GET">
+    <button type = "submit">Edit Pokemon</button>
+    </form>
+    <form action = "/pokemon/<%=i%>/?_method=DELETE" method = "POST">
+    <button type = "submit">Delete Pokemon</button>
+    </form>
+    </li>
     <% } %>
     </ul>  
+    <form action = "/pokemon/new" method = "GET">
+    <button type = "submit">Create New Pokemon</button>
 </body>
 </html>
